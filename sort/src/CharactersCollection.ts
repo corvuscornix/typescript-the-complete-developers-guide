@@ -1,22 +1,26 @@
-export class CharactersCollection {
-  constructor(public data: string) {}
-  get length(): number {
-    return this.data.length;
-  }
+import { Sortable } from './Sorter';
 
-  compare(leftIndex: number, rightIndex: number): boolean {
-    return (
-      this.data[leftIndex].toLowerCase() > this.data[rightIndex].toLowerCase()
-    );
-  }
+export class CharactersCollection extends Sortable {
+	constructor(public data: string) {
+		super();
+	}
+	get length(): number {
+		return this.data.length;
+	}
 
-  swap(leftIndex: number, rightIndex: number): void {
-    const characters = this.data.split('');
+	compare(leftIndex: number, rightIndex: number): boolean {
+		return (
+			this.data[leftIndex].toLowerCase() > this.data[rightIndex].toLowerCase()
+		);
+	}
 
-    const leftHand = characters[leftIndex];
-    characters[leftIndex] = characters[rightIndex];
-    characters[rightIndex] = leftHand;
+	swap(leftIndex: number, rightIndex: number): void {
+		const characters = this.data.split('');
 
-    this.data = characters.join('');
-  }
+		const leftHand = characters[leftIndex];
+		characters[leftIndex] = characters[rightIndex];
+		characters[rightIndex] = leftHand;
+
+		this.data = characters.join('');
+	}
 }
