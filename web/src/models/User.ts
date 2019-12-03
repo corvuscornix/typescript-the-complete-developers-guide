@@ -1,16 +1,25 @@
-interface UserProps {
+import { Eventing } from './Eventing';
+import { Sync } from './Sync';
+import { Attributes } from './Attributes';
+
+export interface UserProps {
 	name?: string;
 	age?: number;
+	id?: number;
 }
 
-export class User {
-	constructor(private data: UserProps) {}
+const rootUrl = 'http://localhost:3000/users';
 
-	get(propName: string): string | number {
-		return this.data[propName];
+export class User extends Eventing {
+	public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl);
+	public attributes: Attributes<UserProps>;
+
+	constructor(attrs: UserProps) {
+		super();
+		this.attributes = new Attributes<UserProps>(attrs);
 	}
 
-	set(update: UserProps): void {
-		Object.assign(this.data, update);
+	get get() {
+		return this.attributes.get;
 	}
 }
