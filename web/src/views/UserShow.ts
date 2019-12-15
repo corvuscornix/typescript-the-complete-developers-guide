@@ -1,4 +1,4 @@
-import { View } from './View';
+import { View } from '../models/View';
 import { UserProps, User } from '../models/User';
 
 export class UserShow extends View<User, UserProps> {

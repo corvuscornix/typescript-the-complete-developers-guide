@@ -1,4 +1,3 @@
-import { Model } from './Model';
 import { Eventing } from './Eventing';
 import Axios, { AxiosResponse } from 'axios';
 

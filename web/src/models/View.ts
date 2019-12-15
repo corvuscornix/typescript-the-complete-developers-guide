@@ -1,4 +1,4 @@
-import { Model } from '../models/Model';
+import { Model } from './Model';
 
 interface HasId {
 	id?: number;
@@ -50,6 +50,8 @@ export abstract class View<T extends Model<K>, K> {
 		}
 	}
 
+	onRender(): void {}
+
 	render(): void {
 		this.parent.innerHTML = '';
 		const element = document.createElement('template');
@@ -57,6 +59,8 @@ export abstract class View<T extends Model<K>, K> {
 
 		this.bindEvents(element.content);
 		this.mapRegions(element.content);
+
+		this.onRender();
 
 		this.parent.append(element.content);
 	}
