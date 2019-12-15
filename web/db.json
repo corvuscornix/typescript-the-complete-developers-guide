@@ -33,6 +33,16 @@
       "name": "asdasdasd",
       "age": 83,
       "id": 7
+    },
+    {
+      "name": "anders",
+      "age": 75,
+      "id": 8
+    },
+    {
+      "name": "Simo",
+      "age": 42,
+      "id": 9
     }
   ]
 }
