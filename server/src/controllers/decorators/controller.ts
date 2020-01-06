@@ -42,11 +42,11 @@ export function controller(routePrefix: string) {
 				Reflect.getMetadata(MetadataKeys.middleware, target.prototype, key) ||
 				[];
 
-			const requreuidBodyProps =
+			const requiredBodyProps =
 				Reflect.getMetadata(MetadataKeys.validator, target.prototype, key) ||
 				[];
 
-			const validator = bodyValidators(requreuidBodyProps);
+			const validator = bodyValidators(requiredBodyProps);
 
 			if (path) {
 				router[method](
